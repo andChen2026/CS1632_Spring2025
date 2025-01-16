@@ -25,6 +25,6 @@ public class PetTypeChecked {
 	public static void main(String[] args) {
 		Dog dog = new Dog("Snoopy");
 		Cat cat = new Cat("Garfield");
-		converse(dog, cat);
+		converse(cat, dog);
 	}
 }
