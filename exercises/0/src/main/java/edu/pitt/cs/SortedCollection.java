@@ -2,10 +2,13 @@ package edu.pitt.cs;
 
 //TODO: Import libraries as needed
 import java.util.NoSuchElementException;
+import java.util.TreeMap;
+import java.util.Map;
 
 public class SortedCollection {
 	// TODO: Add member variables or methods as needed
-
+	Map<Integer, Integer> map = new TreeMap<>();
+	int c = 0;
 	/**
 	 * Adds the number n to the collection.
 	 * 
@@ -14,6 +17,7 @@ public class SortedCollection {
 	 */
 	public boolean add(int n) {
 		// TODO: Implement
+		map.put(n, 0);
 		return true;
 	}
 
@@ -24,8 +28,9 @@ public class SortedCollection {
 	 * @return the smallest number in the collection
 	 */
 	public int remove() throws NoSuchElementException {
-		// TODO: Implement
-		return 0;
+		int min = ((TreeMap<Integer, Integer>) map).firstKey();
+		map.remove(min);
+		return min;
 	}
 
 	/**
@@ -49,6 +54,20 @@ public class SortedCollection {
 		}
 		
 		// TODO: add numbers in commandline arguments to collection using the add(int) method.
+		for (String i : args)
+		{
+			int p;
+			try{
+				p = Integer.parseInt(i);
+				collection.add(p);
+			}
+			catch (NumberFormatException e){
+				showUsage();
+				return;
+			}
+		}
+			
+		
 		// If any commandline argument is not a number, call showUsage() and return.
 		
 		System.out.print("sorted: ");
